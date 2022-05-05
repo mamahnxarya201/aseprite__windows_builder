@@ -74,16 +74,10 @@ jobs:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
         if: matrix.os == 'macOS-latest'
         run: brew install ninja p7zip
-      - name: Get Skia from cache
-        id: skia-cache
-        uses: actions/cache@v2
-        with:
-          path: skia
-          key: skia-${{ matrix.os }}-cache
-      - name: Download Skia if not in cache
-        if: steps.skia-cache.outputs.cache-hit != 'true'
+      
+      - name: Download Skia if not in cache        
         run: |
-          curl -o Skia-${{ runner.os }}-Release-X64.zip -L https://github.com/aseprite/skia/releases/download/m81-b607b32047/Skia-${{ runner.os }}-Release-X64.zip
+          curl -o Skia-${{ runner.os }}-Release-X64.zip -L https://github.com/aseprite/skia/releases/download/m96-2f1f21b8a9/Skia-${{ runner.os }}-Release-X64.zip
           unzip Skia-${{ runner.os }}-Release-X64.zip -d skia
       - name: Download Aseprite release
         run: |
