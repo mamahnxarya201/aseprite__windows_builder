@@ -5,14 +5,8 @@ on:
     inputs:
       force_build:
         required: true
-        type: boolean
-    
-  schedule:
-    - cron: '0 0 * * *'
-  push:
-    branches:
-      - main
-
+        type: boolean 
+        
 env:
   BUILD_TYPE: Release
   
